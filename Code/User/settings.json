@@ -70,5 +70,6 @@
 		"editor.insertSpaces": false
 	},
 
-	"terminal.integrated.enableMultiLinePasteWarning": "never"
+	"terminal.integrated.enableMultiLinePasteWarning": "never",
+	"python.defaultInterpreterPath": "/opt/homebrew/bin/python3"
 }
