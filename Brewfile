@@ -46,6 +46,7 @@ brew "asmvik/formulae/yabai"
 brew "hashicorp/tap/terraform"
 brew "kayac/tap/ecspresso"
 
+cask "antigravity"
 cask "deskpad"
 cask "google-cloud-sdk"
 cask "gpg-suite"
