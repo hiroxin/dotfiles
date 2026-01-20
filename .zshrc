@@ -41,16 +41,16 @@ alias ll='ls -alF'
 source <(fzf --zsh)
 
 # --- Git ---------------------------------------
-# fbr - checkout git branch
-fbr() {
+# gbr - checkout git branch
+gbr() {
   local branches branch
   branches=$(git branch -vv) &&
   branch=$(echo "$branches" | fzf +m) &&
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
 
-# fbrr - checkout git branch (including remote branches)
-fbrr() {
+# gbrr - checkout git branch (including remote branches)
+gbrr() {
   local branches branch
   branches=$(git branch --all | grep -v HEAD) &&
   branch=$(echo "$branches" |
@@ -58,16 +58,16 @@ fbrr() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-# fcoc - checkout git commit
-fcoc() {
+# gcoc - checkout git commit
+gcoc() {
   local commits commit
   commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
   commit=$(echo "$commits" | fzf --tac +s +m -e) &&
   git checkout $(echo "$commit" | sed "s/ .*//")
 }
 
-# fshow - git commit browser
-fshow() {
+# gshow - git commit browser
+gshow() {
   git log --graph --color=always \
       --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
   fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
