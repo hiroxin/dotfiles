@@ -1,7 +1,9 @@
+editorconfig.editorconfig
+github.copilot
 golang.go
+HashiCorp.terraform
 ms-azuretools.vscode-docker
 ms-kubernetes-tools.vscode-kubernetes-tools
 ms-python.python
 ms-vscode-remote.vscode-remote-extensionpack
 ms-vsliveshare.vsliveshare
-HashiCorp.terraform
