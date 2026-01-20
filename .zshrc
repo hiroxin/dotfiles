@@ -20,6 +20,9 @@ export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
 
+# Added by Antigravity
+export PATH="/Users/h_nakano/.antigravity/antigravity/bin:$PATH"
+
 
 # === Alias ===============================================
 
@@ -96,3 +99,4 @@ function icd() {
         builtin cd "$dir" &> /dev/null
     done
 }
+
