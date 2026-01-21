@@ -11,6 +11,37 @@ else
 fi
 
 
+# === Prompt Settings =====================================
+
+# 1. Load module to get git information
+autoload -Uz vcs_info
+setopt prompt_subst
+
+# 2. Set git branch name format
+# %b represents the branch name
+zstyle ':vcs_info:git:*' formats '%F{green}[%b]%f'
+
+# 3. Function executed just before the prompt is displayed
+precmd() {
+    vcs_info
+}
+
+# 4. Left prompt configuration
+# %n: Username
+# %1~: Current directory name only
+
+PROMPT='%n %1~ ${vcs_info_msg_0_} $ '
+RPROMPT=''
+
+# When you want to display branch status on right side
+# you should turn on following settings.
+# PROMPT='%n %1~ $ '
+
+# 5. Right prompt configuration
+# ${vcs_info_msg_0_}: Displays branch name if inside a git repository
+#RPROMPT='${vcs_info_msg_0_}'
+
+
 # === Environment Variables ===============================
 
 export LANG=ja_JP.UTF-8
