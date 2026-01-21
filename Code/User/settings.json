@@ -70,6 +70,11 @@
 		"editor.insertSpaces": false
 	},
 
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+  },
+
 	"terminal.integrated.enableMultiLinePasteWarning": "never",
 	"python.defaultInterpreterPath": "/opt/homebrew/bin/python3"
 }
