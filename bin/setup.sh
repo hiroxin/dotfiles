@@ -57,7 +57,7 @@ function link_to_homedir() {
   local dotdir
   dotdir=$(dirname ${script_dir})
 
-  if [[ "$HOME" != "$dotdir" ]];then
+  if [[ "$HOME" == "$dotdir" ]];then
     command echo "Skipped: Source and destination are the same ($HOME)."
     return
   fi
