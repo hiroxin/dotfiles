@@ -111,7 +111,7 @@ FZF-EOF"
 }
 
 # --- FileSystem --------------------------------
-# Interactive cd
+# icd - Interactive cd
 function icd() {
     if [[ "$#" != 0 ]]; then
         builtin cd "$@";
@@ -130,5 +130,32 @@ function icd() {
         [[ ${#dir} != 0 ]] || return 0
         builtin cd "$dir" &> /dev/null
     done
+}
+
+
+# --- Help ---------------------------------------
+# zhelp - list custom commands from .zshrc
+zhelp() {
+    local selected=$(awk '
+        /^# / {
+            comment = substr($0, 3)
+        }
+
+        /^[a-z_-]+\(\) \{|^function [a-z_-]+/ {
+            name = $0
+            sub(/^function /, "", name)
+            sub(/[ \t]*\(.*\).*/, "", name)
+            sub(/[ \t]*\{.*/, "", name)
+
+            if (comment != "" && name !~ /^(precmd|vcs_info|zhelp)$/) {
+                printf "%-12s : %s\n", name, comment
+            }
+            comment = ""
+        }
+    ' ~/.zshrc | fzf --height 40% --reverse --header "Custom Commands List" --prompt "Command > ")
+
+    if [ -n "$selected" ]; then
+        print -z $(echo "$selected" | awk '{print $1}')
+    fi
 }
 
