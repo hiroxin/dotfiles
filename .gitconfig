@@ -2,5 +2,3 @@
     path = ~/.config/git/config.common
     path = ~/.config/git/config.personal.local
 
-[includeIf "gitdir:~/workspace/work/"]
-    path = ~/.config/git/config.work.local
